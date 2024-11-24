@@ -1,0 +1,23 @@
+{
+  "extends": "tslint-config-airbnb",
+  "rules": {
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "variable-name": [false],
+    "max-line-length": {
+      "options": [
+        140
+      ],
+      "severity": "warning"
+    },
+
+    "no-else-after-return": [
+      "error",
+      {
+        "allowElseIf": "true"
+      }
+    ]
+  }
+}
