@@ -1,0 +1,96 @@
+{
+    "projectName": "Omnia Depot Web Services",
+    "version": "0.0.1",
+    "production": true,
+    "env": "local",
+    "settings": {
+        "loggerLevel": "INFO",
+        "authOptions": {
+            "disableAccessTokenCheck": false,
+            "authUrl": ""
+        },
+        "headers": [
+            "Origin",
+            "Request-ID",
+            "Transaction-ID",
+            "Correlation-ID",
+            "Authorisation",
+            "Content-Type",
+            "cache"
+        ],
+        "webServiceOptions": {
+            "baseUrl": "http://localhost:3000/v1",
+            "port": "3000",
+            "timeout": 30000,
+            "apis": {
+                "register": {
+                    "baseUri": "/register",
+                    "adminlUri": "/admin",
+                    "staffUri": "/staff",
+                    "managerlUri": "/manager",
+                    "scopes": "openid security:system OD:WS:C OD:WS:R OD:WS:S OD:WS:U",
+                    "methods": [
+                        "DELETE",
+                        "GET",
+                        "Options",
+                        "PATCH",
+                        "POST",
+                        "PUT"
+                    ]
+                },
+                "products": {
+                    "baseUri": "/products",
+                    "clearanceUri": "/clearance",
+                    "onSavelUri": "/onSale",
+                    "orderUri": "/order",
+                    "stockUri": "/stock",
+                    "scopes": "openid security:system OD:WS:S",
+                    "methods": [
+                        "GET"
+                    ]
+                },
+                "address": {
+                    "baseUri": "/geospactial/v1/addresses",
+                    "suggestUri": "/suggest",
+                    "validateUri": "/validate",
+                    "scopes": "openid security:system OD:GS:S",
+                    "methods": [
+                        "GET"
+                    ]
+                }
+            },
+            "proxy": {
+                "useProxy": false,
+                "protocol": "",
+                "host": "",
+                "port": 0,
+                "username": "",
+                "password": ""
+            }
+        },
+        "databaseOptions": {
+            "hostEndpoint": "localhost",
+            "hostPort": 5432,
+            "name": "omnia-depot",
+            "schema": "cps",
+            "username": "masteruser",
+            "password": "masterpassword",
+            "passwordEncripted": false
+        },
+        "errorOptions": {
+            "badRequest": 400,
+            "unauthorizedError": 401,
+            "forbiddenError": 403,
+            "notFound": 404,
+            "methodNotAllowedError": 405,
+            "requestTimeoutError": 408,
+            "unsupportedMediaTypeError": 415,
+            "tooManyRequestsError": 429,
+            "internalServerError": 500,
+            "badGatewayError": 502,
+            "ServiceUnavailableError": 503,
+            "gatewayTimeoutError": 504,
+            "unknownError": 520
+        }
+    }
+}
