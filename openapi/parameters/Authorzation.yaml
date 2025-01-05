@@ -1,0 +1,9 @@
+name: Authorization
+in: header
+required: true
+schema:
+  type: string
+  pattern: ^Bearer [a-zA-Z0-9-_=]+\.[a-zA-Z0-9-_=]+\.?[a-zA-Z0-9-_.+/=]*$
+  description: |
+    Bearer token for authentication. Format: "Bearer {JWT}". JWT typically
+    consists of three parts: header.payload.signature

@@ -1,0 +1,12 @@
+description: |
+  Specifies caching directives for both request and response to control how
+  caches should handle the content.
+schema:
+  type: string
+  default: no-store
+  enum:
+    - no-store
+    - no-cache
+    - max-age=0
+    - must-revalidate
+example: no-store

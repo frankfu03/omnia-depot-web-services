@@ -1,0 +1,14 @@
+name: Content-Type
+in: header
+required: true
+schema:
+  type: string
+  enum:
+    - application/json
+    - application/xml
+    - multipart/form-data
+  default: application/json
+description: |
+  Specifies the content type of the request body.
+  Determines how the server parses the request payload.
+example: application/json

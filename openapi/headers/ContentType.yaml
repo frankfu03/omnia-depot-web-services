@@ -1,0 +1,11 @@
+description: |
+  Specifies the media/content type of the request body
+  to determine how the server parses the request payload.
+schema:
+  type: string
+  default: application/json
+  enum:
+    - application/json
+    - application/xml
+    - multipart/form-data
+example: application/json

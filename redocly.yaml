@@ -1,0 +1,16 @@
+extends:
+  - recommended
+
+rules:
+  no-server-example.com: off
+  path-parameters-defined: error
+  operation-operationId: error
+  paths-kebab-case: warn
+  security-defined: off
+  rule/version-semver:
+    subject:
+      type: Info
+      property: version
+    assertions:
+      pattern: /1\.[0-9]\.[0-9]/
+    message: API version must be in SemVer format, no major version release
