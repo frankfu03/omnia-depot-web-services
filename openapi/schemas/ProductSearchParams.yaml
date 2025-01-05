@@ -1,0 +1,25 @@
+type: object
+additionalProperties: true
+minProperties: 1
+description: >-
+  The search parameters for searching products from Omnia depot database
+properties:
+  category:
+    type: string
+    description: The category of the products
+  priceMin:
+    type: integer
+    description: The minmum price of the products
+    example: 1
+  priceMax:
+    type: integer
+    description: The maxmum price of the products
+    example: 1000
+  page:
+    type: integer
+    description: The page number of the results retrieved
+    example: 1
+  pageSize:
+    type: integer
+    description: The number of search results per page
+    example: 10

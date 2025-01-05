@@ -1,0 +1,21 @@
+description: >
+  The 'X-Content-Type-Options' header is a security measure used to prevent
+  MIME type sniffing attacks.
+
+  When set to 'nosniff', it instructs the browser to strictly follow the declared
+  Content-Type of the response and not to try to guess or 'sniff' the MIME type
+  of the content.
+
+  This header helps to:
+  1. Mitigate MIME type confusion attacks;
+  2. Ensure that the browser respects the declared Content-Type;
+  3. Prevent potentially malicious files from being executed as a different content type.
+
+  Note: this header currently only supports one value 'nosniff'. Any other value is
+  ignored by browsers.
+
+schema:
+  type: string
+  enum: ['nosniff']
+  default: nosniff
+example: nosniff

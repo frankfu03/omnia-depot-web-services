@@ -1,0 +1,24 @@
+type: object
+description: Details of a product
+required:
+  - name
+  - price
+  - discount
+  - quantity
+  - description
+  - stock
+  - brand
+  - model
+  - specification
+  - manufactory
+  - madeIn
+  - images
+
+properties:
+  name:
+    type: string
+    description: Name of the product
+  price:
+    type: float
+    description: Price of the product
+    format: date-time

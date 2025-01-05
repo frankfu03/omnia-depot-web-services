@@ -1,0 +1,47 @@
+type: object
+description: >
+  Represents a standardised error object that provides detailed information
+  about an error occurrence. This schema follows RFC 7807 with some extensions.
+required:
+  - code
+  - detail
+properties:
+    id:
+      type: string
+      description: A unique identifier for the error occurrence, to provide
+        tracability in application logs.
+      pattern: ^[a-zA-Z0-9]+$
+      maxLength: 36
+    code:
+      type: string
+      description: The specific or predefined unique error code in upper case.
+      pattern: ^[A-Z0-9]+$
+      minLength: 3
+      maxLength: 20
+    detail:
+      type: string
+      description: The detailed error message.
+      maxLength: 1000
+    title:
+      type: string
+      description: A short summary of the error.
+      maxLength: 36
+    source:
+      $ref: './ApiErrorSource.yaml'
+    helpText:
+      type: string
+      description: Help text which can provide further assistance on the error.
+      maxLength: 500
+    helpUrl:
+      type: string
+      description: A URL which leads to further details about the error (e.g., a help page).
+      maxLength: 2000
+example:
+  id: 2
+  code: ERR-401
+  detail: Missing Authorization header
+  source:
+    point: Authorization
+    location: REQUEST
+  helpUrl: https://docs.example.com/errors/UNAUTHORIZED
+  helpText: Please ensure you have included a valid Authorization header in your request.

@@ -1,0 +1,6 @@
+description: A unique identifier (UUID v4) to correlate requests across systems.
+schema:
+  type: string
+  format: uuid
+  pattern: ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$
+example: 5b10dfcb-cbec-4305-8169-551ad47ca7bb

@@ -1,0 +1,24 @@
+description: >
+  Indicates the sensitivity and handling requirements of the exchanged data.
+
+  Format: VER=<version>, NS=<namespace> SEC=<classification>
+
+  Where:
+  - <version>: The version of protective marking standard (e.g., 2020.6);
+  - <namespace>: The govening namespace (e.g., gov.au);
+  - <classification>: The security classification (e.g., UNCLASSIFIED, PROTECTED, SECRET).
+
+  Note: this header helps ensure proper handling and protection of sensitive
+  data across systems. Implementers should refer to their organization's data
+  classification policies for specific guidance.
+
+schema:
+  type: string
+  enum: '^VER=[0-9]+\.[0-9]+, NS=[a-zA-Z0-9\.-]+, SEC=[A-Z_]+$'
+example:
+  commonwealth:
+    summary: Commonwealth PROTECTED data
+    value: 'VER=2018.1, NS=gov.au, SEC=PROTECTED'
+  unclassified:
+    summary: Unclassified data
+    value: 'VER=2020.6, NS=gov.au, SEC=UNCLASSIFIED'

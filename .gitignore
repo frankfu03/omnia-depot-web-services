@@ -28,6 +28,7 @@ tmp
 thunder-tests
 **/build
 **/dist
+**/generated-files
 **/openapi.json
 **/openapi-dist.yaml
 .next

@@ -1,0 +1,11 @@
+type: object
+properties:
+  pointer:
+    type: string
+    description: A JSON pointer to the associated entrity in the request.
+  parameter:
+    type: string
+    description: A string indicating which URI query parameter caused the error.
+  location:
+    type: string
+    description: The location of the query parameter to which the error message is related.

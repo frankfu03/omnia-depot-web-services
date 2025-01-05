@@ -1,0 +1,28 @@
+type: object
+description: >
+  Represents pagination information for a list of resources.
+  This object provides details about the current page, page
+  size, total number of pages, and total number of results.
+required:
+  - page
+  - pageSize
+  - totalPages
+properties:
+  page:
+    type: integer
+    minimum: 1
+    maximum: 10000
+    description: The current page number
+    example: 1
+  pageSize:
+    type: integer
+    minimum: 1
+    maximum: 500
+    description: The number of items per page
+    example: 10
+  totalPages:
+    type: integer
+    minimum: 1
+    maximum: 10000
+    description: Total number of pages
+    example: 10

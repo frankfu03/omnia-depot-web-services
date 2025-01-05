@@ -1,0 +1,14 @@
+type: object
+required:
+  - statusCode
+  - errors
+properties:
+  statusCode:
+    type: integer
+    description: The HTTP status code of the error
+  errors:
+      type: array
+      description: An array of API error objects
+      items: './ApiError.yaml'
+      minItems: 1
+      maxItems: 100

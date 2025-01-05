@@ -1,0 +1,133 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Omnia Depot Web Services
+  termsOfService: https://ominadepot.com/terms/
+  contact:
+    name: Frank Fu
+    email: frank.fu@ominadepot.com
+    url: http://ominadepot.com/contact
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: https://redocly.github.io/openapi-template/logo.png
+    altText: OpenAPI example logo
+  description: >
+    This API definition specifies the OpenAPI in [OpenAPI/Swagger
+    format](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md).
+
+    It also demonstrates features of the
+    [create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool
+    and the [Redoc](https://github.com/Redocly/Redoc) documentation engine. Beyond
+    the standard OpenAPI syntax, we use a few
+    [vendor extensions](https://github.com/Redocly/Redoc/blob/main/docs/redoc-vendor-extensions.md).
+
+    **Supported Endpoints**
+    - `GET /products/seach`: Seach goods from depot
+    - `GET /products/order`: Order goods from depot
+
+    **Security Measures**
+    - The server will validate the access token and authorise the request based on the clients permissions.
+    - Only clients with necessary administrative privileges can access this endpoints.
+    - Real-time monitoring will be implemented to detect anomalous activity or suspicious patterns.
+
+    **Error Handling**
+    - The API returns appropriate HTTP status codes and error responses for various scenarios.
+
+externalDocs:
+  description: Find out how to create a GitHub repo for your OpenAPI definition.
+  url: https://github.com/Redocly/create-openapi-repo
+
+tags:
+  - name: OmniaDepot
+    description: Endpoints related to Omnia Depot
+  - name: Product
+    description: Products of Omnia Depot
+  - name: User
+    description: Actions on user accounts.
+  - name: Admin
+    description: Operations reserved for administrators.
+  - name: Info
+    description: Operations for retrieving information.
+  - name: Tag
+    description: This is a tag description.
+
+x-tagGroups:
+  - name: General
+    tags:
+      - Product
+      - User
+      - Info
+  - name: Administration
+    tags:
+      - Admin
+
+servers:
+  - url: https://localhost:8080/{basePath}
+    description: Local API server with version
+    variables:
+      basePath:
+        default: v1
+  - url: https://omniadepot.com/api/v1
+    description: Omnia Depot Web Services API server with version
+
+paths:
+  /path-item-with-examples:
+    $ref: paths/path-item-with-examples.yaml
+  /path-item:
+    $ref: paths/path-item.yaml
+  /products:
+    $ref: paths/product.yaml
+  /products/{id}:
+    $ref: paths/product_{id}.yaml
+  /users:
+    $ref: paths/user.yaml
+  /users/{username}:
+    $ref: paths/user_{username}.yaml
+  /users/status:
+    $ref: paths/user-status.yaml
+
+components:
+  securitySchemes:
+    omniaDepotAuthSchema:
+      description: |-
+        OAth 2.0 authentication schema for the Omnia Depot wev services. Users must obtain
+        an access token from the authorisation server before making API requests.
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:3000/securityservices/sps/oauth/pauth20/authorize
+          tokenUrl: https://localhost:3000/securityservices/sps/oauth/pauth20/token
+          refreshUrl: https://localhost:3000/securityservices/sps/oauth/pauth20/token
+          scopes:
+            OD:USR:R: read is alowed to view its own user info
+            OD:USR:U: read is alowed to update its own user info
+            OD:USR:S: user is alowed to search products
+            OD:ADM:W: Admin is allowed to modify or remove users
+    api_key:
+      description: Example description text of the API key scheme.
+      type: apiKey
+      in: header
+      name: api_key
+    basic_auth:
+      type: http
+      scheme: basic
+webhooks:
+  user-info:
+    post:
+      summary: New user webhook
+      description: Information about a new user in the system.
+      operationId: userInfo
+      tags:
+        - Info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: schemas/User.yaml
+      responses:
+        200:
+          description: Successfully retrieved information about a new user.
+      security:
+        - api_key: []
