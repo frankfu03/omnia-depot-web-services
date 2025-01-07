@@ -3,12 +3,12 @@
  * HTTP Extension (RFC 2774) that should be used to process the request, but the
  * extension is not supported.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class NotExtendedError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 510;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

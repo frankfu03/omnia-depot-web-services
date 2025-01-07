@@ -9,12 +9,12 @@
  * to complete. A client that sends a request in early data does not need to
  * include the Early-Data header.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class TooEarlyError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 425;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

@@ -7,12 +7,12 @@
  * Improper server-side permissions set on files or directories may cause a 405
  * response when the request would otherwise be expected to succeed.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class MethodNotAllowedError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 405;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

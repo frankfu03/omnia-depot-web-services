@@ -22,12 +22,12 @@
  * can also occur in Web Distributed Authoring and Versioning (WebDAV) when a request
  * method (SEARCH, PROPFIND) does not have a URL handler configured to process it.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class NotImplementedError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 501;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

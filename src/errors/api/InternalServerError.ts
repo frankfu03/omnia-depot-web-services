@@ -12,12 +12,12 @@
  * responses, like the 500 status code, with details about the initiating requests
  * to improve the stability of a service in the future.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class InternalServerError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 500;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

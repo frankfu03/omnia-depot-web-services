@@ -13,12 +13,12 @@
  *
  * Some systems implement 414 URI Too Long as 414 Request-URI Too Large.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class URITooLongError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 414;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

@@ -6,12 +6,12 @@
  * omitted, and at the beginning of each chunk, the length of the current chunk
  * needs to be included in hexadecimal format.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class LengthRequiredError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 411;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

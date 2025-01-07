@@ -8,12 +8,12 @@
  * issued, and one command fails then automatically every other command will also
  * fail with 424 Failed Dependency.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class FailedDependencyError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 424;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

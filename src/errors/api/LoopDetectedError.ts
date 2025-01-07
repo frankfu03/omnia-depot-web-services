@@ -8,12 +8,12 @@
  * clients do not support 208 Already Reported responses (when requests do not
  * explicitly include a DAV header).
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class LoopDetectedError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 508;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

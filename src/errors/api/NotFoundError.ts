@@ -12,12 +12,12 @@
  * prevent frustration for readers. Common causes of 404 responses are mistyped
  * URLs or pages that are moved or deleted without redirection.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class NotFoundError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 404;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

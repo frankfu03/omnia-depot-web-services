@@ -10,12 +10,12 @@
  * to send a 404 response instead of a 403 if acknowledging the existence of a
  * resource to clients with insufficient privileges is not desired.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class ForbiddenError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 403;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

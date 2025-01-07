@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 import { ApiError } from '../errors';
 
 export const errorHandlerMiddleware = (
@@ -7,7 +7,7 @@ export const errorHandlerMiddleware = (
     response: Response,
     next: NextFunction
 ): void => {
-    let statusCode: number = 400;
+    let statusCode = 400;
     if (error instanceof ApiError) {
         statusCode = error.statusCode;
     }

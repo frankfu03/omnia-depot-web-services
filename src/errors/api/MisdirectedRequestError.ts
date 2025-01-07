@@ -4,12 +4,12 @@
  * that is not configured to produce responses for the combination of scheme and
  * authority that are included in the request URI.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class MisdirectedRequestError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 421;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,
