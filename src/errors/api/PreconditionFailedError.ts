@@ -6,12 +6,12 @@
  * upload or a modification of a resource) cannot be made and this error
  * response is sent back.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class PreconditionFailedError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 412;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

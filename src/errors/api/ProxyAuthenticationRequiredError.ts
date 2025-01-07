@@ -8,12 +8,12 @@
  * on how to correctly authenticate requests. The client may repeat the request with
  * a new or replaced Proxy-Authorization header field.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class ProxyAuthenticationRequiredError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 407;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

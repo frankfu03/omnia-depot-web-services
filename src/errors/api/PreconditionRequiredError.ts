@@ -6,12 +6,12 @@
  * as If-Match is missing. When a precondition header does not match the
  * server-side state, the response should be 412 Precondition Failed.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class PreconditionRequiredError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 428;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

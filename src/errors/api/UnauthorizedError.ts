@@ -9,12 +9,12 @@
  * is returned when a request contains valid credentials, but the client does not
  * have permissions to perform a certain action.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class UnauthorizedError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 401;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

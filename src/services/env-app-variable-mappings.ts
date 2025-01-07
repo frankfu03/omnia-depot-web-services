@@ -1,7 +1,7 @@
-import { VariableMapping } from "../models/variable-mapping";
-import { DataType } from "../models/data-type";
+import type { VariableMapping } from '../models/variable-mapping';
+import { DataType } from '../models/data-type';
 
-export const Env_App_Variable_Mappings: VariableMapping[] = [
+export const EnvAppVariableMappings: VariableMapping[] = [
     {
         appVariableName: 'projectName',
         envVariableName: 'PROJECT_NAME',
@@ -117,4 +117,4 @@ export const Env_App_Variable_Mappings: VariableMapping[] = [
         envVariableName: 'DATABASE_PASSWORD_ENCRIPTED',
         dataType: DataType.Boolean,
     },
-]
+];

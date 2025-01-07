@@ -1,15 +1,13 @@
 import * as _ from 'lodash';
-import path from "path";
-import dotenv from "dotenv";
+import path from 'path';
+import dotenv from 'dotenv';
 
-import { VariableMapping } from "../models/variable-mapping";
-import { Env_App_Variable_Mappings } from "./env-app-variable-mappings";
+import type { VariableMapping } from '../models/variable-mapping';
+import { EnvAppVariableMappings } from './env-app-variable-mappings';
 import * as configJson from '../../config/config.json';
 import { DataType } from '../models/data-type';
 
-export interface ConfigSet {
-    [key: string]: any;
-}
+export type ConfigSet = Record<string, unknown>;
 
 export class EnvironmentConfigService {
     public readonly ENV_FILE = '../../config/local.env';
@@ -18,14 +16,14 @@ export class EnvironmentConfigService {
 
     private constructor() {
         // Parsing the env file and store variables to process.env
-        const envFilePath = path.resolve(__dirname, "../config/config.env");
+        const envFilePath = path.resolve(__dirname, '../config/config.env');
         dotenv.config({ path: envFilePath });
 
         // parse the application's config.json
         this.configSet = JSON.parse(JSON.stringify(configJson)) as ConfigSet;
 
         // Inject environment variables into
-        Env_App_Variable_Mappings.forEach((variableMapping: VariableMapping) => {
+        EnvAppVariableMappings.forEach((variableMapping: VariableMapping) => {
             const appVariableNames = variableMapping.appVariableName.split('/');
             const envVariableName = variableMapping.envVariableName;
             const value = this.getEnvironmentValue(envVariableName, variableMapping.dataType);
@@ -52,9 +50,9 @@ export class EnvironmentConfigService {
             return undefined;
         }
         switch (dataType) {
-            case(DataType.Boolean):
+            case (DataType.Boolean):
                 return typeof value === 'boolean' ? value : Boolean(value);
-            case(DataType.Number):
+            case (DataType.Number):
                 return typeof value === 'number' ? value : Number(value);
             default:
                 return value;
@@ -69,8 +67,8 @@ export class EnvironmentConfigService {
         }
         let newConfigSet = _.cloneDeep(this.configSet);
         variableNames.forEach((variableName: string) => {
-            if (newConfigSet.hasOwnProperty(variableName)) {
-                newConfigSet = this.configSet[variableName];
+            if (Object.prototype.hasOwnProperty.call(newConfigSet, variableName)) {
+                newConfigSet = this.configSet[variableName] as ConfigSet;
             } else {
                 this.configSet[variableName] = {};
             }

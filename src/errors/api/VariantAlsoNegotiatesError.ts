@@ -13,12 +13,12 @@
  * where a server directly chooses the most appropriate resource for the client based
  * on the request headers (Accept-Language, Accept, etc.).
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class VariantAlsoNegotiatesError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 506;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

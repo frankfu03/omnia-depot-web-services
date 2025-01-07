@@ -5,12 +5,12 @@
  *
  * Prior to RFC 9110 the response phrase for the status was Payload Too Large.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class PayloadTooLargeError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 413;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

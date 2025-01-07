@@ -7,12 +7,12 @@
  * instead of \r\n. For example, intermediaries such as load balancers may not
  * handle request lines of a forwarded request as illustrated in the example below.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class HTTPVersionNotSupportedError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 505;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

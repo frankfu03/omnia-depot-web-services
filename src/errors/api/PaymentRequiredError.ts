@@ -7,12 +7,12 @@
  * the client makes a payment. No standard use convention exists and different
  * systems use it in different contexts.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class PaymentRequiredError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 402;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

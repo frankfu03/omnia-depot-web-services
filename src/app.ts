@@ -1,5 +1,5 @@
 import cors from 'cors';
-import express, { NextFunction, Request, Response } from 'express';
+import express, { type NextFunction, type Request, type Response } from 'express';
 import helmet from 'helmet';
 import path from 'path';
 
@@ -78,7 +78,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
  */
 app.options('/products/:id', cors());
 app.delete('/products/:id', cors(), (req: Request, res: Response, next: NextFunction) => {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
+    res.json({msg: 'This is CORS-enabled for all origins!'});
 });
 
 /**

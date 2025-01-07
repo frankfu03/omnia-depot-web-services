@@ -21,12 +21,12 @@
  * indicates a temporary issue and responses shouldn't usually be cached as clients may
  * receive outdated error pages after a fix has been deployed.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class ServiceUnavailableError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 503;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

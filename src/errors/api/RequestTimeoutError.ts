@@ -11,12 +11,12 @@
  *
  * Note: Some servers will shut down a connection without sending this message.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class RequestTimeoutError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 408;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

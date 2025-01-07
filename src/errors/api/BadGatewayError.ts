@@ -16,12 +16,12 @@
  * VPNs or other custom networking setups. In such cases, clients should check network
  * settings, firewall setup, proxy settings, DNS configuration, etc.
  */
-import { ApiError, ApiErrorCode } from "../api-error";
+import { ApiError, type ApiErrorCode } from '../api-error';
 
 export class BadGatewayError extends ApiError<ApiErrorCode> {
     public static readonly STATUS_CODE = 502;
 
-    constructor(
+    public constructor(
         message: string,
         method?: string,
         url?: string,

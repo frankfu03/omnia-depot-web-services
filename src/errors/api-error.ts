@@ -7,13 +7,13 @@ export type ApiErrorName = typeof apiErrorCodeNames;
 export type ApiErrorCode = keyof ApiErrorName;
 
 export class ApiError<TCode extends ApiErrorCode> extends Error {
-    public readonly name: string = "Http Error";
+    public readonly name: string = 'Http Error';
     public readonly statusCode: TCode;
     public readonly message: string;
     public readonly method?: string;
     public readonly url?: string;
 
-    constructor(
+    public constructor(
         statusCode: TCode,
         message: string,
         method?: string,
@@ -54,7 +54,7 @@ export const apiErrorCodeNames = {
     422: 'Unprocessable Entity',
     423: 'Locked',
     424: 'Failed Dependency',
-    425: "Too Early Error",
+    425: 'Too Early Error',
     426: 'Upgrade Required',
     428: 'Precondition Required',
     429: 'Too Many Requests',
