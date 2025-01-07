@@ -24,6 +24,7 @@ coverage
 dist
 out
 out-tsc
+qa
 tmp
 thunder-tests
 **/build
@@ -31,6 +32,7 @@ thunder-tests
 **/generated-files
 **/openapi.json
 **/openapi-dist.yaml
+**/qa
 .next
 .nuxt
 .temp
