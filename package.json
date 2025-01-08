@@ -9,11 +9,11 @@
   "scripts": {
     "apidoc": "redocly lint openapi/openapi.yaml && redocly build-docs openapi/openapi.yaml --output=./generated-files/odws-openapi-doc.html",
     "apijson": "redocly lint openapi/openapi.yaml && redocly bundle openapi/openapi.yaml --output=./openapi/openapi.json",
-    "clean": "shx rm -rf coverage build, dist, openapi/openapi.json",
+    "clean": "shx rm -rf build, dist, jest-coverage, openapi/openapi.json",
     "start": "node dist/server.js",
     "build": "tsc",
     "lint": "eslint . --report-unused-disable-directives",
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -55,6 +55,7 @@
     "jest": "^29.7.0",
     "nock": "^13.5.6",
     "prettier": "^3.4.2",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.19.1"
   },

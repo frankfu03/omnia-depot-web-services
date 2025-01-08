@@ -32,7 +32,7 @@ export default tsEslint.config(
             ecmaVersion: 2023,
             sourceType: 'script',
             parserOptions: {
-                project: './tsconfig.eslint.json',
+                project: './tsconfig.app.json',
                 projectService: true,
                 tsconfigRootDir: import.meta.dirname,  // path.dirname(fileURLToPath(import.meta.url)), for node.js < 20.11.0
             },
@@ -175,8 +175,8 @@ export default tsEslint.config(
         ignores: [
             'build',
             'dist',
+            'jest-coverage',
             'node_modules',
-            'qa',
         ],
     },
 );
