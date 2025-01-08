@@ -21,7 +21,7 @@ module.exports = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
-    '<rootDir>/src/app/**/*.{ts,js}'
+    '<rootDir>/src/**/*.{ts,js}'
   ],
 
   // The directory where Jest should output its coverage files
@@ -30,10 +30,8 @@ module.exports = {
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: [
     '.*/.*.(spec|test).[jt]s',
-    'app.config.ts',
-    'app.config.server.ts',
-    'app.routes.ts',
-    'app/form-inputs/abstract-input.component.ts',
+    'eslint.config.[m]js',
+    'jest.config.[jt]s',
   ],
 
   // Indicates which provider should be used to instrument code for coverage
@@ -195,8 +193,8 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.(ts|js|mjs|html|svg)$': [
-      'ts-jest',  // 'jest-preset-angular'
+    '^.+\\.(ts|mjs|html|svg)$': [
+      'ts-jest',
       {
         tsconfig: '<rootDir>/tsconfig.spec.json',
         stringifyContentPathRegex: '\\.html$',
