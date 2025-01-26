@@ -1,6 +1,6 @@
 import type { DataType } from './data-type';
 
-export interface VariableMapping {
+export interface VariableMap {
     appVariableName: string;
     envVariableName: string;
     dataType: DataType;
