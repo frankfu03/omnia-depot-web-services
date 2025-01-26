@@ -1,12 +1,12 @@
 {
     "projectName": "Omnia Depot Web Services",
     "version": "0.0.1",
-    "production": true,
+    "production": false,
     "env": "local",
     "settings": {
         "loggerLevel": "INFO",
         "authOptions": {
-            "disableAccessTokenCheck": false,
+            "disableAccessTokenCheck": true,
             "authUrl": ""
         },
         "headers": [
@@ -19,7 +19,7 @@
             "cache"
         ],
         "webServiceOptions": {
-            "baseUrl": "http://localhost:3000/v1",
+            "baseUrl": "",
             "port": "3000",
             "timeout": 30000,
             "apis": {
@@ -66,6 +66,10 @@
                 "port": 0,
                 "username": "",
                 "password": ""
+            },
+            "systemTest": {
+                "skip": false,
+                "level": "INFO"
             }
         },
         "databaseOptions": {
@@ -77,7 +81,7 @@
             "password": "masterpassword",
             "passwordEncripted": false
         },
-        "errorOptions": {
+        "errorCodes": {
             "badRequest": 400,
             "unauthorizedError": 401,
             "forbiddenError": 403,

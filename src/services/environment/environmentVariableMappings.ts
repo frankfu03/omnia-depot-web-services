@@ -1,7 +1,7 @@
-import type { VariableMapping } from '../models/variable-mapping';
-import { DataType } from '../models/data-type';
+import type { VariableMap } from '../../models/variable-map';
+import { DataType } from '../../models/data-type';
 
-export const EnvAppVariableMappings: VariableMapping[] = [
+export const envVariableMappings: VariableMap[] = [
     {
         appVariableName: 'projectName',
         envVariableName: 'PROJECT_NAME',
@@ -39,7 +39,7 @@ export const EnvAppVariableMappings: VariableMapping[] = [
     },
     {
         appVariableName: 'settings/webServiceOptions/baseUrl',
-        envVariableName: 'WEB_SERVICE_BASEURL',
+        envVariableName: 'WEB_SERVICE_BASE_URL',
         dataType: DataType.String,
     },
     {
@@ -49,7 +49,7 @@ export const EnvAppVariableMappings: VariableMapping[] = [
     },
     {
         appVariableName: 'settings/webServiceOptions/timeout',
-        envVariableName: 'DEFAUL_TIMEOUT',
+        envVariableName: 'WEB_SERVICE_TIMEOUT',
         dataType: DataType.Number,
     },
     {
@@ -83,6 +83,16 @@ export const EnvAppVariableMappings: VariableMapping[] = [
         dataType: DataType.String,
     },
     {
+        appVariableName: 'settings/databaseOptions/name',
+        envVariableName: 'DATABASE_NAME',
+        dataType: DataType.String,
+    },
+    {
+        appVariableName: 'settings/databaseOptions/schema',
+        envVariableName: 'DATABASE_SCHEMA',
+        dataType: DataType.String,
+    },
+    {
         appVariableName: 'settings/databaseOptions/hostEndpoint',
         envVariableName: 'DATABASE_HOST_ENDPOINT',
         dataType: DataType.String,
@@ -91,16 +101,6 @@ export const EnvAppVariableMappings: VariableMapping[] = [
         appVariableName: 'settings/databaseOptions/hostPort',
         envVariableName: 'DATABASE_HOST_PORT',
         dataType: DataType.Number,
-    },
-    {
-        appVariableName: 'settings/databaseOptions/envVariableName',
-        envVariableName: 'DATABASE_NAME',
-        dataType: DataType.String,
-    },
-    {
-        appVariableName: 'settings/databaseOptions/schema',
-        envVariableName: 'DATABASE_SCHEMA',
-        dataType: DataType.String,
     },
     {
         appVariableName: 'settings/databaseOptions/username',
@@ -116,5 +116,15 @@ export const EnvAppVariableMappings: VariableMapping[] = [
         appVariableName: 'settings/databaseOptions/passwordEncripted',
         envVariableName: 'DATABASE_PASSWORD_ENCRIPTED',
         dataType: DataType.Boolean,
+    },
+    {
+        appVariableName: 'settings/systemTest/skip',
+        envVariableName: 'SKIP_SYSTEM_TEST',
+        dataType: DataType.Boolean,
+    },
+    {
+        appVariableName: 'settings/systemTest/level',
+        envVariableName: 'SYSTEM_TEST_LEVEL',
+        dataType: DataType.String,
     },
 ];
