@@ -4,7 +4,7 @@
   "description": "A web service implemented in nodejs with TypeORM that provides RESTful apis for searching and order goods from the omnia depot.",
   "main": "server.ts",
   "engines": {
-    "node": "20.14.0"
+    "node": ">=22.13.1"
   },
   "scripts": {
     "apidoc": "redocly lint openapi/openapi.yaml && redocly build-docs openapi/openapi.yaml --output=./generated-files/odws-openapi-doc.html",
