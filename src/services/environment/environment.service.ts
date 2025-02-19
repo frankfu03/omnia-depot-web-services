@@ -3,10 +3,9 @@ import * as _ from 'lodash';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { envVariableMappings } from './environmentVariableMappings';
+import { envVariableMappings } from './environment.config';
 import * as appSettingsJson from '../../../data/app-settings.json';
-import { DataType } from '../../models/data-type';
-import type { VariableMap } from '../../models/variable-map';
+import { DataType, type VariableMap } from '../../models';
 
 export type ConfigSet = Record<string, unknown>;
 

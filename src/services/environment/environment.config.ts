@@ -1,5 +1,5 @@
-import type { VariableMap } from '../../models/variable-map';
-import { DataType } from '../../models/data-type';
+import { DataType, type VariableMap } from '../../models';
+import { type ConfigSet, EnvironmentService } from './environment.service';
 
 export const envVariableMappings: VariableMap[] = [
     {
@@ -128,3 +128,6 @@ export const envVariableMappings: VariableMap[] = [
         dataType: DataType.String,
     },
 ];
+
+// For global use
+export const environmentConfig: ConfigSet = EnvironmentService.getInstance().config;
