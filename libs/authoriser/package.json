@@ -1,0 +1,22 @@
+{
+  "name": "authoriser",
+  "version": "0.0.1",
+  "description": "Lambda authoriser",
+  "main": "index.ts",
+  "scripts": {
+    "clean": "shx rm -rf ./build ./dist ./qa ./coverage",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "Lambda",
+    "Autjoriser",
+    "Token",
+    "OAuth2"
+  ],
+  "author": "Frank Q. Fu",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.8"
+  }
+}

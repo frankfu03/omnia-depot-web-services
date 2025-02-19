@@ -65,8 +65,10 @@
     "express-openapi-validator": "^5.4.2",
     "helmet": "^8.0.0",
     "http-proxy-middleware": "^3.0.3",
+    "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mini-moment": "^0.1.1",
+    "openapi-types": "^12.1.3",
     "typeorm": "^0.3.20"
   }
 }
